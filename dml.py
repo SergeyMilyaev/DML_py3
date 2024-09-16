@@ -389,7 +389,7 @@ y: 2d array, shape (n_pairs, 3)
             loss += self.alpha * (L ** 2).sum()
         loss = loss.mean()
         if self.verbose:
-            print "fval:", loss
+            print("fval:", loss)
         return loss
 
     def _compute_grad(self, x):
@@ -422,7 +422,7 @@ y: 2d array, shape (n_pairs, 3)
         dx = MatThreshold(dL, dthres)
 
         if self.verbose:
-            print "|grad|", np.sqrt(MatThreshold.dot(dx, dx))
+            print("|grad|", np.sqrt(MatThreshold.dot(dx, dx)))
 
         return MatThreshold(dL, dthres)
 
@@ -530,9 +530,9 @@ class CrossValCallback(object):
     def __call__(self, x):
         if self._niter % self.step == 0:
             L, b = x
-            print "score: ", compute_score(
+            print("score: ", compute_score(
                 self.X, self.pairs, self.labels, L, b
-            )
+            ))
         self._niter += 1
 
 
@@ -680,7 +680,7 @@ y: 2d array, shape (n_pairs, 3)
             loss += self.alpha * (B ** 2).sum()
         loss = loss.mean()
         if self.verbose:
-            print "fval:", loss
+            print("fval:", loss)
         return loss
 
     def _compute_grad(self, x):
@@ -719,7 +719,7 @@ y: 2d array, shape (n_pairs, 3)
         dx = Mat2Threshold(dA, dB, dthres)
 
         if self.verbose:
-            print "|grad|", np.sqrt(Mat2Threshold.dot(dx, dx))
+            print("|grad|", np.sqrt(Mat2Threshold.dot(dx, dx)))
 
         return dx
 
